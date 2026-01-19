@@ -1,0 +1,156 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fondo general */
+body {
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333333;
+}
+
+/* Etiquetas */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #555555;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+
+input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Botón */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Resultado */
+.resultado {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #e9f5ff;
+    border-left: 5px solid #007bff;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #333333;
+    text-align: center;
+}
+
+/* Precio destacado */
+.precio {
+    font-size: 22px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    appearance: none;           /* Quita estilo nativo */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Flecha personalizada */
+select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='gray'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+}
+
+/* Al pasar el ratón */
+select:hover {
+    border-color: #007bff;
+}
+
+/* Al hacer foco */
+select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    appearance: none;           /* Quita estilo nativo */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Flecha personalizada */
+select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='gray'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+}
+
+/* Al pasar el ratón */
+select:hover {
+    border-color: #007bff;
+}
+
+/* Al hacer foco */
+select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
