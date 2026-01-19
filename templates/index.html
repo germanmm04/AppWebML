@@ -2,48 +2,87 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Predicción de precio de vehículos</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 <body>
 
 <div class="container">
-<h1>Predicción del precio del vehículo</h1>
+    <h1>Predicción del precio del vehículo</h1>
 
-<form method="POST">
-    <label>Marca:</label><br>
-    <input type="text" name="marca" required><br><br>
+    {% if error %}
+    <div class="error-message">
+        <strong>Error:</strong> {{ error }}
+    </div>
+    {% endif %}
 
-    <label>Modelo:</label><br>
-    <input type="text" name="modelo" required><br><br>
+    <form method="POST" id="predictionForm" novalidate>
+        <div class="form-group">
+            <label for="marca">Marca:</label>
+            <input type="text" name="marca" id="marca" required 
+                   placeholder="Ej: Toyota, Honda, Ford...">
+            <span class="error-text" id="error-marca"></span>
+        </div>
 
-    <label>Tipo de combustible:</label><br>
-    <select name="combustible" id="combustible" required>
-    <option value="">Selecciona una opción</option>
-    <option value="Petrol">Gasolina</option>
-    <option value="Diesel">Diésel</option>
-    </select>
+        <div class="form-group">
+            <label for="modelo">Modelo:</label>
+            <input type="text" name="modelo" id="modelo" required 
+                   placeholder="Ej: Corolla, Civic, Focus...">
+            <span class="error-text" id="error-modelo"></span>
+        </div>
 
-    <label>Tipo de transmisión:</label><br>
-    <select name="transmision" id="transmision" required>
-    <option value="">Selecciona una opción</option>
-    <option value="Manual">Manual</option>
-    <option value="Automatic">Automática</option>
-    </select>
+        <div class="form-group">
+            <label for="combustible">Tipo de combustible:</label>
+            <select name="combustible" id="combustible" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Petrol">Gasolina</option>
+                <option value="Diesel">Diésel</option>
+            </select>
+            <span class="error-text" id="error-combustible"></span>
+        </div>
 
-    <label>Kilometraje:</label><br>
-    <input type="number" name="kilometraje" min="0" required><br><br>
+        <div class="form-group">
+            <label for="transmision">Tipo de transmisión:</label>
+            <select name="transmision" id="transmision" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automática</option>
+            </select>
+            <span class="error-text" id="error-transmision"></span>
+        </div>
 
-    <label>Año de fabricación:</label><br>
-    <input type="number" name="anio" min="1900" max="2025" required><br><br>
+        <div class="form-group">
+            <label for="kilometraje">Kilometraje:</label>
+            <input type="number" name="kilometraje" id="kilometraje" 
+                   min="0" max="1000000" step="1" required 
+                   placeholder="Ej: 50000">
+            <span class="error-text" id="error-kilometraje"></span>
+        </div>
 
-    <button type="submit">Calcular precio</button>
-</form>
+        <div class="form-group">
+            <label for="anio">Año de fabricación:</label>
+            <input type="number" name="anio" id="anio" 
+                   min="1900" max="2025" required 
+                   placeholder="Ej: 2020">
+            <span class="error-text" id="error-anio"></span>
+        </div>
 
-{% if precio %}
-    <h2>Precio estimado: {{ precio | round(2) }} €</h2>
-{% endif %}
+        <button type="submit" id="submitBtn">
+            <span id="btnText">Calcular precio</span>
+            <span id="btnLoader" class="loader" style="display: none;"></span>
+        </button>
+    </form>
+
+    {% if precio %}
+    <div class="resultado">
+        <h2>Precio estimado</h2>
+        <p class="precio">{{ precio | round(2) }} €</p>
+        <p class="precio-rupias">({{ (precio * 90) | round(0) }} rupias aproximadamente)</p>
+    </div>
+    {% endif %}
 </div>
+
+<script src="{{ url_for('static', filename='validation.js') }}"></script>
 </body>
 </html>
